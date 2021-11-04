@@ -12,3 +12,5 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # TODO: Utilizar o modelo para determinar se a lyric gerada tem uma proabilidade alta de ser de rap.
 #  Se o score for > X, aceitar
+
+# TODO: Teste...
