@@ -55,7 +55,7 @@ history = model.fit(training_padded, training_labels, epochs=num_epochs,
                     validation_data=(testing_padded, testing_labels), verbose=2)
 
 new_sentences = ["bob wants to go take a crap", "the weather is sunny today",
-                 "No love shown get disposed of blasted full blown"]
+                 "Ridin' in that motherfuckin' Bentley"]
 
 new_sequences = new_tokenizer.texts_to_sequences(new_sentences)
 new_sentences_padded = pad_sequences(new_sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
