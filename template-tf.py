@@ -4,7 +4,7 @@ from tensorflow import keras
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-with open('Sarcasm_Headlines_Dataset.json', 'r') as f:
+with open('Datasets/Sarcasm_Headlines_Dataset.json', 'r') as f:
     datastore = json.load(f)
 
 sentences = []
