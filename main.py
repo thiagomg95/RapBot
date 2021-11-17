@@ -14,6 +14,3 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 #  Se o score for > X, aceitar
 
 # TODO: Teste...
-
-
-# DEMO

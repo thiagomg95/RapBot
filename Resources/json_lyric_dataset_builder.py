@@ -14,8 +14,8 @@ def compose_unformatted_json():
     non_rap_line_list = []
     non_rap_lyric_list = []
 
-    for item in os.listdir('../Rap Songs'):
-        if os.path.isfile(os.path.join('../Rap Songs', item)) and item.endswith('.json'):
+    for item in os.listdir('../RapBot/Rap Songs'):
+        if os.path.isfile(os.path.join('../RapBot/Rap Songs', item)) and item.endswith('.json'):
             f = open('../RapBot/Rap Songs/' + item, 'r')
             json_obj = json.load(f)
 
@@ -37,8 +37,8 @@ def compose_unformatted_json():
     for lyric in rap_lyric_list:
         f2.write("{\"lyric\": \"" + lyric + "\", \"is_rap\": " + str(1) + "},\n")
 
-    for item in os.listdir('../Non-Rap Songs'):
-        if os.path.isfile(os.path.join('../Non-Rap Songs', item)) and item.endswith('.json'):
+    for item in os.listdir('../RapBot/Non-Rap Songs'):
+        if os.path.isfile(os.path.join('../RapBot/Non-Rap Songs', item)) and item.endswith('.json'):
             f = open('../RapBot/Non-Rap Songs/' + item, 'r')
             json_obj = json.load(f)
 
@@ -62,14 +62,12 @@ def compose_unformatted_json():
 
 
 def randomize_unformatted_json():
-
     lines = open('Lyrics/unformatted_json.txt', 'r').readlines()
     random.shuffle(lines)
     open('Lyrics/randomized_unformatted_json.txt', 'w').writelines(lines)
 
 
 def format_json():
-
     un_formatted_json_lines = open('Lyrics/randomized_unformatted_json.txt', 'r').readlines()
     formatted_json = open('Datasets/rap_training_dataset.json', 'w')
 
@@ -83,3 +81,19 @@ def compose_dataset():
     compose_unformatted_json()
     randomize_unformatted_json()
     format_json()
+
+
+def clean_temp_files():
+    for item in os.listdir('../RapBot/Lyrics'):
+        if os.path.isfile(os.path.join('../RapBot/Lyrics', item)) and item.endswith('.txt'):
+            os.remove('../RapBot/Lyrics/' + item)
+
+
+def clean_song_files():
+    for item in os.listdir('../RapBot/Rap Songs'):
+        if os.path.isfile(os.path.join('../RapBot/Rap Songs', item)) and item.endswith('.json'):
+            os.remove('../RapBot/Rap Songs/' + item)
+
+    for item in os.listdir('../RapBot/Non-Rap Songs'):
+        if os.path.isfile(os.path.join('../RapBot/Non-Rap Songs', item)) and item.endswith('.json'):
+            os.remove('../RapBot/Non-Rap Songs/' + item)
